@@ -37,8 +37,8 @@ class SlackBot extends Adapter
     @client.on 'userChange', @.userChange
     @robot.brain.on 'loaded', @.brainLoaded
 
-    @robot.on 'slack-attachment', @.customMessage
-    @robot.on 'slack.attachment', @.customMessage
+    @robot.on 'slack-attachment', @.customMessage.bind(this)
+    @robot.on 'slack.attachment', @.customMessage.bind(this)
 
     # Start logging in
     @client.login()
